@@ -32,6 +32,7 @@ def login_douyin():
 # 爬取一条评论
 def get_one_element(i, driver):
     try:
+        # //*[@id="douyin-right-container"]/div[2]/div/div[1]/div[5]/div/div/div[3]/div[7]/div/div[2]/div[1]/p/span[1]/span/span/span/span/span/span
         comment = driver.find_element(By.XPATH, '//*[@id="root"]/div[1]/div[2]/div/div/div[1]/div[5]/div/div/div[4]/div[' + str(i) + ']/div/div[2]/div/p/span/span/span/span/span[1]/span/span')
     except:
         return None
@@ -107,7 +108,7 @@ def check_string(comment):
 
 
 driver = login_douyin()
-driver.execute_script("window.open('https://www.douyin.com/video/7195511697598156088')")
+driver.execute_script("window.open('https://www.douyin.com/video/7199415761725574458')")
 wins = driver.window_handles
 driver.switch_to.window(wins[-1])
 
@@ -115,6 +116,7 @@ print("<-- 开始评论ing...... -->")
 fp = open("123.txt", 'a+', encoding="utf-8") # a+ 读写（追加）
 for i in range(1, 31):
     comment = get_one_element(i, driver)
+    print(comment)
     if comment != None:
         if not check_string(comment.text): # 不存在
             fp.write(comment.text + '\n')
