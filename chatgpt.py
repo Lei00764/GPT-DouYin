@@ -1,21 +1,19 @@
 import openai
 
-# OpenAI并没有提供一个公开的API来直接调用ChatGPT，但是您可以使用OpenAI的GPT-3 API来获得类似的结果.
-# 密钥：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
-# prompt：要说的话
-# 返回 GPT-3 的答复
+# prompt: 要说的话
+# return: GPT-3.5 (即CHAT-GPT) 的答复
 def generate_text(prompt):
     openai.api_key = "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"
-
-    model_engine = "text-davinci-003"
-    completions = openai.Completion.create(
-        engine=model_engine,
-        prompt=prompt,
-        max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.5,
+    resp = openai.ChatCompletion.create(
+        model='gpt-3.5-turbo',
+        messages=[
+            {"role": "user", "content": prompt}
+        ],
+        max_tokens=120 # 回复的最大字符数（大概）
     )
-    message = completions.choices[0].text
-    print(message)
-    return message
+    content = resp['choices'][0]['message']['content']
+    content = content.replace('\n', '')
+    return content.strip()
+
+
+print(generate_text("请列举5点软件工程专业的优点"))
