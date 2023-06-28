@@ -12,11 +12,11 @@ if __name__ == '__main__':
 
     print("<-- 开始评论 -->")
     print('\n')
-    fp = open("123.txt", 'a+', encoding="utf-8") # a+ 读写（追加）
+    fp = open("123.txt", 'a+', encoding="utf-8")  # a+ 读写（追加）
     for i in range(1, 31):
         comment = get_one_element(i, driver)
         if comment != None:
-            if not check_string(comment.text): # 不存在
+            if not check_string(comment.text):  # 不存在
                 fp.write(comment.text + '\n')
                 click_one_resp(i, comment.text, driver)
             else:

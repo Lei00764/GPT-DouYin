@@ -5,7 +5,7 @@ import json
 # return: GPT-3.5 (即CHAT-GPT) 的答复
 def generate_text(prompt):
     # 从 JSON 文件中读取数据
-    with open('api.json') as f:
+    with open('api.json', encoding='utf-8') as f:  # TODO：在 api.json 中填入你的 API
         data = json.load(f)
     # 获取 API URL
     api = data['api']
@@ -16,10 +16,12 @@ def generate_text(prompt):
         messages=[
             {"role": "user", "content": prompt}
         ],
-        max_tokens=120 # 回复的最大字符数（大概）
+        max_tokens=120  # 回复的最大字符数（大概）
     )
     content = resp['choices'][0]['message']['content']
     content = content.replace('\n', '')
     return content.strip()
 
-print(generate_text("请列举5点软件工程专业的优点"))
+
+if __name__ == "__main__":
+    print(generate_text("请列举5点软件工程专业的优点"))
