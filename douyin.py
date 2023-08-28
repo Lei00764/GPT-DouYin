@@ -52,7 +52,7 @@ def click_one_resp(i, comment, driver):
                                            '//*[@id="douyin-right-container"]/div[2]/div/div[1]/div[5]/div/div/div[3]/div[' + str(
                                                i) + ']/div/div[2]/div/div[3]/div/div[3]/div/span'))).click()
     time.sleep(3)
-    # 输入框    
+    # 输入框
     wait.until(EC.element_to_be_clickable((By.XPATH,
                                            '//*[@id="douyin-right-container"]/div[2]/div/div[1]/div[5]/div/div/div[3]/div[' + str(
                                                i) + ']/div/div[2]/div/div[3]/div/div[3]/div/span')))
@@ -85,7 +85,8 @@ def click_one_resp(i, comment, driver):
                                                            '//*[@id="douyin-right-container"]/div[2]/div/div[1]/div[5]/div/div/div[3]/div[' + str(
                                                                i) + ']/div/div[2]/div[1]/div[3]/div[2]/div/div/div[2]/div/span[3]'))).click()
                 except:
-                    driver.execute_script('window.scrollBy(0, 150)')  # 下滑150个像素
+                    driver.execute_script(
+                        'window.scrollBy(0, 150)')  # 下滑150个像素
                     wait.until(EC.element_to_be_clickable((By.XPATH,
                                                            '//*[@id="douyin-right-container"]/div[2]/div/div[1]/div[5]/div/div/div[3]/div[' + str(
                                                                i) + ']/div/div[2]/div[1]/div[3]/div[2]/div/div/div[2]/div/span[3]'))).click()
