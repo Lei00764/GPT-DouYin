@@ -23,9 +23,3 @@ pip3 install openai
 ## 注意事项
 1. 在使用本项目前，请确保您已经安装了 Chrome 浏览器，并下载对应版本的 ChromeDriver。 
 2. 在运行脚本之前，请确保您拥有 OpenAI GPT-3 的 API 密钥。
-
-## 贡献
-欢迎对该项目提出问题和改进建议。如果您有任何疑问或想要参与贡献，请在 GitHub 上提出 Issue 或提交 Pull Request。
-
-## 许可证
-本项目采用 MIT 许可证。
